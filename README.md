@@ -14,10 +14,9 @@ Exchanges funcionam de forma semelhante a um serviço postal, recebem as mensage
 
 As regras de roteamento são chamadas de *routing keys*.
 
-<aside>
-💡 Uma diferença na analogia do serviço postal é que as mensagens são efetivamente copiadas para as filas, e uma mesma mensagem pode ser roteada para mais de 1 uma fila.
 
-</aside>
+> 💡 Uma diferença na analogia do serviço postal é que as mensagens são efetivamente copiadas para as filas, e uma mesma mensagem pode ser roteada para mais de 1 uma fila.
+
 
 Um producer de mensagens nunca as envia diretamente para filas, ele sempre envia para exchanges. O trabalho da exchange se resume a receber mensagens dos producers e enviar estas mensagens para queues. 
 
