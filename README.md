@@ -91,3 +91,7 @@ Queue is like your destination in New York city
 Exchange is like JFK airport
 Bindings are routes from JFK to your destination. There can be zero or many ways to reach it
 ```
+
+# References
+
+1 - [https://www.rabbitmq.com/tutorials/amqp-concepts.html](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
