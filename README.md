@@ -58,11 +58,11 @@ Sempre que houve um problema que envolva múltiplos consumers/aplicações que s
 
 ## Header Exchange
 
-É a exchange utilizada para realizar o roteamento utilizando multiplos atributos que são definidos através de *headers* ao invés de *routing keys*.
+É a exchange utilizada para realizar o roteamento utilizando múltiplos atributos que são definidos através de *headers* ao invés de *routing keys*.
 
 Essa exchange ignora a routing key utilizando atributos do header como chaves para realizar o roteamento.
 
-Uma característica interssante é a utilização do argumento "x-match" no binding, quando esse argumento é utilizado com o valor "*any*", caso pelo menos 1 atributo do header der match, já é suficente para rotear a mensangem.
+Uma característica interessante é a utilização do argumento "x-match" no binding, quando esse argumento é utilizado com o valor "*any*", caso pelo menos 1 atributo do header der match, já é suficiente para rotear a mensagem.
 
 
 # Queue
