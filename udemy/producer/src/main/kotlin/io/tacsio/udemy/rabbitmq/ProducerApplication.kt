@@ -2,6 +2,7 @@ package io.tacsio.udemy.rabbitmq
 
 import io.tacsio.udemy.rabbitmq.entity.DummyMessage
 import io.tacsio.udemy.rabbitmq.service.DummyProducer
+import io.tacsio.udemy.rabbitmq.service.MultiplePrefetchProducer
 import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -32,6 +33,24 @@ class ProducerApplication {
             producer.sendDummy(msg)
             TimeUnit.SECONDS.sleep(1)
         }
+        log.info("Messages sent.")
+    }
+
+    @Profile("prefetch")
+    @Bean
+    fun prefetch(producer: DummyProducer) = CommandLineRunner {
+        for(i in 1..500){
+            val msg = DummyMessage("New is ${now()}", i)
+            producer.sendDummy(msg)
+        }
+        log.info("Messages sent.")
+    }
+
+    @Profile("m-prefetch")
+    @Bean
+    fun multiplePrefetch(producer: MultiplePrefetchProducer) = CommandLineRunner {
+        producer.simulateScheduler()
+        producer.simulateTransaction()
         log.info("Messages sent.")
     }
 
