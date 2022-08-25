@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 import java.time.LocalTime
 
-@Profile("m-prefetch")
 @Service
 class MultiplePrefetchProducer(private var rabbitTemplate: RabbitTemplate) {
 

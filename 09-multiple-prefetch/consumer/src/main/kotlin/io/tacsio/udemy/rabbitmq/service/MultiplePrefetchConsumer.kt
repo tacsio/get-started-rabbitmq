@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 import java.util.concurrent.TimeUnit
 
-@Profile("m-prefetch")
 @Service
 class MultiplePrefetchConsumer {
     private val log = LoggerFactory.getLogger(MultiplePrefetchConsumer::class.java)

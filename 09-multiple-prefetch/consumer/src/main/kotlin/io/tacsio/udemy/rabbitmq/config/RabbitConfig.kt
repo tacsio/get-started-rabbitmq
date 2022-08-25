@@ -25,7 +25,6 @@ class RabbitConfig {
         return Jackson2JsonMessageConverter(objectMapper);
     }
 
-    @Profile("m-prefetch")
     @Bean
     fun prefetchOneContainerFactory(
         configurer: SimpleRabbitListenerContainerFactoryConfigurer,
