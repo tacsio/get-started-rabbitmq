@@ -1,4 +1,8 @@
 version: '3'
+
+volumes:
+  rabbitmq:
+
 services:
   rabbit:
     image: rabbitmq:3.9.22-management-alpine
@@ -10,4 +14,4 @@ services:
       - "15671:15671"
       - "15672:15672"
     volumes:
-      - "./.volumes/rabbitmq:/var/lib/rabbitmq"
+      - "rabbitmq:/var/lib/rabbitmq"
