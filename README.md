@@ -91,6 +91,8 @@ No AMQP queues são buffers de mensagens.
 
 A ligação entre uma exchange e uma queue é chamada de *binding*.
 
+Queues podem ter a propriedade **x-single-active-consumer:consumer=true** que fará com que apenas um canal receba as mensagens da fila (evita concorrencia de consumidores). Inclusive, caso existam 2 consumidores para uma fila single, apenas 1 receberá as mensagens e caso esse falhe (caia) o outro começa a recebê-las.
+
 ## Propriedades
 
 1. Nome

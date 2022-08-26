@@ -1,6 +1,6 @@
 package io.tacsio.udemy.rabbitmq
 
-import io.tacsio.udemy.rabbitmq.entity.InvoiceCreatedMessage
+import io.tacsio.udemy.rabbitmq.entity.DummyMessage
 import io.tacsio.udemy.rabbitmq.service.InvoiceProducer
 import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner
@@ -16,13 +16,9 @@ class ProducerApplication {
 
     @Bean
     fun invoice(producer: InvoiceProducer) = CommandLineRunner {
-        for (i in 1..100) {
-            //create
-            var invoiceNumber = "INV-${i % 30}"
-            val amount = i.toDouble()
-            val invoiceCreated = InvoiceCreatedMessage(invoiceNumber, amount, "USD", LocalDateTime.now().minusDays(2))
-
-            producer.sendInvoiceCreated(invoiceCreated)
+        for (i in 1..10000) {
+            val msg = DummyMessage("Message ${i}")
+            producer.sendDummy(msg)
         }
         log.info("Messages sent.")
     }
