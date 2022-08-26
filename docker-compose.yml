@@ -5,6 +5,7 @@ volumes:
 
 services:
   rabbit:
+    hostname: 'rabbit'
     image: rabbitmq:3.9.22-management-alpine
     ports:
       - "5672:5672"

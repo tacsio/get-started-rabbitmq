@@ -70,6 +70,20 @@ Essa exchange ignora a routing key utilizando atributos do header como chaves pa
 
 Uma característica interessante é a utilização do argumento "x-match" no binding, quando esse argumento é utilizado com o valor "*any*", caso pelo menos 1 atributo do header der match, já é suficiente para rotear a mensagem.
 
+## Consistent Hash Exchange
+
+Utilizado quando é necessário ter ordem no processamento das mensagens. Utilizando um identificador único, é gerado o hash desse valor e as mensagens que compartilham esse hash são enviadas para a mesma fila, garantindo ordem no processamento.
+Existe uma condição para que essa abordagem funcione que é a de que cada Consumer deve escutar apenas uma fila.
+
+> Existe a possibilidade de quebrar o correto roteamento baseado no hash quando uma nova fila é adicionada a exchange.
+
+É necessário instalar o plugin "rabbitmq_consistent_hash_exchange"
+
+```
+rabbitmq-plugins enable rabbitmq_consistent_hash_exchange
+```
+
+Na consistet hash exchange, a routing key é definida utilizando números que na verdade representam o 'balanceamento' das queues (peso em um balancer).
 
 # Queue
 
